@@ -73,7 +73,8 @@ body{background-image:radial-gradient(circle at 8% 8%,rgba(255,182,193,.16),tran
 .chips{padding:2px 1px 5px}
 .chips button{background:#fff}
 .chips button.active{background:#ffe4cc;color:var(--soft-orange);border-color:var(--soft-orange);transform:translateY(-1px)}
-.card{border:3px solid var(--light-brown);border-radius:22px;box-shadow:0 11px 28px var(--neko-shadow);background:#fff;animation:card-pop-in .4s cubic-bezier(.25,.8,.25,1.25) both,card-soft-glow 4.2s ease-in-out 1s infinite}
+.card{border:3px solid var(--light-brown);border-radius:22px;box-shadow:0 11px 28px var(--neko-shadow);background:#fff;animation:card-soft-glow 4.2s ease-in-out 1s infinite}
+.card .front{animation:card-pop-in .4s cubic-bezier(.25,.8,.25,1.25) both}
 .card:before{height:8px;background:linear-gradient(90deg,var(--light-brown),var(--soft-orange),var(--gold),var(--soft-orange))}
 .card:hover{box-shadow:0 15px 34px rgba(139,69,19,.27)}
 .card.is-back{animation:card-flip-in .35s ease both,card-soft-glow 4.2s ease-in-out 1s infinite}
