@@ -27,16 +27,17 @@ body{background-image:radial-gradient(circle at 8% 8%,rgba(255,182,193,.16),tran
 .app:before{content:"🐾";position:fixed;z-index:-1;right:-12px;top:18%;font-size:84px;opacity:.035;transform:rotate(-18deg);pointer-events:none}
 .app:after{content:"🐾";position:fixed;z-index:-1;left:-14px;bottom:12%;font-size:72px;opacity:.035;transform:rotate(22deg);pointer-events:none}
 .top{padding-top:12px}
-.brand{position:relative;align-items:flex-start}
+.brand{position:relative;display:block;max-width:620px;padding:0}
 .brand-copy{min-width:0;text-align:center;flex:1}
 .neko-kicker{display:flex;align-items:center;justify-content:center;gap:7px;margin:0!important;color:var(--light-brown)!important;font-size:12px!important;letter-spacing:.03em}
 .brand-cat{display:inline-block;font-size:20px;filter:drop-shadow(0 3px 5px rgba(139,69,19,.18));animation:neko-cat-float 3.5s ease-in-out infinite}
 .brand-cat:last-child{animation-delay:.65s}
-.brand h1{font-weight:900;color:var(--primary-brown);font-size:clamp(20px,5vw,28px);line-height:1.35;letter-spacing:.01em;animation:neko-title-enter .85s cubic-bezier(.25,.8,.25,1.2) both}
-.school-version{display:inline-block!important;margin:-6px 0 9px!important;padding:3px 12px;border:1.5px solid var(--soft-orange);border-radius:999px;background:#fff8f0;color:var(--light-brown)!important;font-size:11px!important;font-weight:900;letter-spacing:.06em;box-shadow:0 3px 9px rgba(139,69,19,.09)}
-.header-tools{display:flex;align-items:center;gap:7px;flex:none}
+.brand h1{margin:3px 0 8px;font-weight:900;color:var(--primary-brown);font-size:clamp(24px,6.5vw,31px);line-height:1.25;letter-spacing:.01em;animation:neko-title-enter .85s cubic-bezier(.25,.8,.25,1.2) both}
+.brand-meta{display:flex;align-items:center;justify-content:center;gap:9px;margin:0 auto 12px}
+.school-version{display:flex!important;align-items:center;justify-content:center;min-height:42px;margin:0!important;padding:5px 17px;border:2px solid var(--soft-orange);border-radius:22px;background:#fff8f0;color:var(--light-brown)!important;font-size:11px!important;font-weight:900;letter-spacing:.05em;line-height:1.2;white-space:nowrap;box-shadow:0 3px 9px rgba(139,69,19,.09)}
+.header-tools{display:flex;align-items:center;justify-content:center;gap:7px;flex:none}
 .count,.sound{border:2px solid var(--light-brown);background:#fff;color:var(--primary-brown);box-shadow:0 4px 12px var(--neko-shadow)}
-.count{border-radius:18px;padding:8px 11px;white-space:nowrap}
+.count{min-height:42px;display:flex;align-items:center;justify-content:center;border-radius:22px;padding:7px 13px;white-space:nowrap}
 .sound{width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:18px;font-weight:900;display:grid;place-items:center;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
 .sound:hover{transform:translateY(-2px) scale(1.04);background:#fff8f0;box-shadow:0 8px 18px var(--neko-shadow)}
 .sound:active{transform:translateY(2px) scale(.94);box-shadow:0 2px 7px var(--neko-shadow)}
@@ -118,7 +119,7 @@ body{background-image:radial-gradient(circle at 8% 8%,rgba(255,182,193,.16),tran
 @keyframes neko-ripple{0%{opacity:.9;transform:translate(-50%,-50%) scale(0)}100%{opacity:0;transform:translate(-50%,-50%) scale(15)}}
 @keyframes float-points{0%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-65px) scale(1.25)}}
 @keyframes cute-particle-burst{0%{opacity:1;transform:translate(-50%,-50%) scale(0) rotate(0)}25%{opacity:1;transform:translate(calc(-50% + var(--dx)*.35),calc(-50% + var(--dy)*.35)) scale(1.2) rotate(120deg)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.55) rotate(360deg)}}
-@media(max-width:520px){.brand{align-items:center}.brand h1{font-size:clamp(18px,5.2vw,23px);margin-bottom:7px}.neko-kicker{font-size:10px!important}.brand-cat{font-size:17px}.header-tools{gap:5px}.count{font-size:11px;padding:7px 9px}.sound{width:36px;height:36px;font-size:16px}.neko-stats{margin-bottom:8px;padding:6px 10px}.stat-bubble{font-size:11px;padding:3px 5px}.subjects button{font-size:12px;padding:8px 4px}.subject-icon{display:block;margin:0 0 2px}.card{border-radius:19px}.actions button{font-size:11px}.shuffle{font-size:11px;padding-left:10px;padding-right:10px}}
+@media(max-width:520px){.brand{padding:0}.brand h1{font-size:clamp(23px,7vw,28px);margin:3px 0 8px}.brand-meta{gap:6px;margin-bottom:11px}.school-version{min-height:38px;padding:4px 12px;font-size:10px!important}.neko-kicker{font-size:10px!important}.brand-cat{font-size:17px}.header-tools{gap:6px}.count{min-height:38px;font-size:11px;padding:6px 10px}.sound{width:38px;height:38px;font-size:16px}.neko-stats{margin-bottom:8px;padding:6px 10px}.stat-bubble{font-size:11px;padding:3px 5px}.subjects button{font-size:12px;padding:8px 4px}.subject-icon{display:block;margin:0 0 2px}.card{border-radius:19px}.actions button{font-size:11px}.shuffle{font-size:11px;padding-left:10px;padding-right:10px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style></head><body><main id="app" class="app math"></main>
 <script>
@@ -126,6 +127,7 @@ const CARDS=[{"id":"en-01","subject":"英語","unit":"be動詞","no":"No.1","que
 const META={"英語":{icon:"📖",color:"english"},"数学":{icon:"➗",color:"math"},"国語":{icon:"✏️",color:"japanese"}};
 const KEY="summer-mastered-offline-v1",SOUND_KEY="nekopon-sound-v1",STREAK_KEY="nekopon-streak-v1";
 let state={subject:"数学",unit:"すべて",mode:"remaining",index:0,flipped:false,order:[]};
+let chipScroll=0;
 let mastered=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"));
 let neko={sound:localStorage.getItem(SOUND_KEY)==="on",streak:Number(sessionStorage.getItem(STREAK_KEY)||0)};
 let audioCtx=null,noticeTimer=null;
@@ -155,11 +157,11 @@ function render(){
   const c=d[state.index],units=["すべて",...new Set(CARDS.filter(x=>x.subject===state.subject).map(x=>x.unit))];
   const modes=[["remaining","まだ",remain],["all","ぜんぶ",b.length],["mastered","できた",done]],app=document.querySelector("#app");
   app.className="app "+META[state.subject].color;
-  app.innerHTML='<header class="top"><div class="brand"><div class="brand-copy"><p class="neko-kicker"><span class="brand-cat" id="leftCat">🐱</span><span>できるまで、くり返すにゃ〜♪</span><span class="brand-cat" id="rightCat">🐱</span></p><h1 id="gameTitle">Nekoponの夏休み</h1><p class="school-version">港川中２バージョン</p></div><div class="header-tools"><div class="count">'+(d.length?state.index+1:0)+' / '+d.length+'</div><button id="soundToggle" class="sound" aria-label="音を'+(neko.sound?'消す':'出す')+'">'+(neko.sound?'🔊':'🔇')+'</button></div></div><div class="neko-stats"><button class="stat-bubble" data-stat="score"><span class="stat-icon">✨</span><span>'+mastered.size*10+'</span></button><button class="stat-bubble" data-stat="streak"><span class="stat-icon">🔥</span><span>'+neko.streak+'</span></button><button class="stat-bubble" data-stat="level"><span class="stat-icon">🏆</span><span>Lv.'+nekoLevel()+'</span></button></div><nav class="subjects">'+Object.keys(META).map(s=>'<button data-subject="'+s+'" class="'+(s===state.subject?'active':'')+'"><span class="subject-icon">'+META[s].icon+'</span><span>'+s+'</span></button>').join('')+'</nav><div class="progress"><div class="progresscopy"><strong>できた '+done+'問</strong><span>あと '+remain+'問にゃ</span></div><div class="track"><i style="width:'+(b.length?done/b.length*100:0)+'%"></i></div></div><div class="filters"><div class="modes">'+modes.map(m=>'<button data-mode="'+m[0]+'" class="'+(state.mode===m[0]?'active':'')+'">'+m[1]+' '+m[2]+'</button>').join('')+'</div><button id="shuffle" class="shuffle">🎲 シャッフルにゃ</button></div><div class="chips">'+units.map(u=>'<button data-unit="'+esc(u)+'" class="'+(u===state.unit?'active':'')+'">'+esc(u)+'</button>').join('')+'</div></header><section class="stage">'+(c?cardHtml(c):emptyHtml(remain))+'</section>';
+  app.innerHTML='<header class="top"><div class="brand"><div class="brand-copy"><p class="neko-kicker"><span class="brand-cat" id="leftCat">🐱</span><span>できるまで、くり返すにゃ〜♪</span><span class="brand-cat" id="rightCat">🐱</span></p><h1 id="gameTitle">Nekoponの夏休み</h1></div><div class="brand-meta"><p class="school-version">港川中２バージョン</p><div class="header-tools"><div class="count">'+(d.length?state.index+1:0)+' / '+d.length+'</div><button id="soundToggle" class="sound" aria-label="音を'+(neko.sound?'消す':'出す')+'">'+(neko.sound?'🔊':'🔇')+'</button></div></div></div><div class="neko-stats"><button class="stat-bubble" data-stat="score"><span class="stat-icon">✨</span><span>'+mastered.size*10+'</span></button><button class="stat-bubble" data-stat="streak"><span class="stat-icon">🔥</span><span>'+neko.streak+'</span></button><button class="stat-bubble" data-stat="level"><span class="stat-icon">🏆</span><span>Lv.'+nekoLevel()+'</span></button></div><nav class="subjects">'+Object.keys(META).map(s=>'<button data-subject="'+s+'" class="'+(s===state.subject?'active':'')+'"><span class="subject-icon">'+META[s].icon+'</span><span>'+s+'</span></button>').join('')+'</nav><div class="progress"><div class="progresscopy"><strong>できた '+done+'問</strong><span>あと '+remain+'問にゃ</span></div><div class="track"><i style="width:'+(b.length?done/b.length*100:0)+'%"></i></div></div><div class="filters"><div class="modes">'+modes.map(m=>'<button data-mode="'+m[0]+'" class="'+(state.mode===m[0]?'active':'')+'">'+m[1]+' '+m[2]+'</button>').join('')+'</div><button id="shuffle" class="shuffle">🎲 シャッフルにゃ</button></div><div class="chips">'+units.map(u=>'<button data-unit="'+esc(u)+'" class="'+(u===state.unit?'active':'')+'">'+esc(u)+'</button>').join('')+'</div></header><section class="stage">'+(c?cardHtml(c):emptyHtml(remain))+'</section>';
   bind();
 }
 function cardHtml(c){
-  const front='<div class="head"><span class="badge">'+META[state.subject].icon+' '+state.subject+'</span><span>'+esc(c.no)+'</span></div><div class="front"><p class="unit">'+esc(c.unit)+'</p><div class="question">'+esc(c.question)+'</div>'+(c.mathHtml?'<div class="formula">'+c.mathHtml+'</div>':'')+(c.hint?'<p class="hint">ヒント：'+esc(c.hint)+'</p>':'')+'</div><div class="guide">タップして答えを見るにゃ〜♪</div>';
+  const front='<div class="head"><span class="badge">'+META[state.subject].icon+' '+state.subject+'</span><span>'+esc(c.no)+'</span></div><div class="front"><p class="unit">'+esc(c.unit)+'</p><div class="question">'+esc(c.question)+'</div>'+(c.mathHtml?'<div class="formula">'+c.mathHtml+'</div>':'')+(c.hint?'<p class="hint">ヒント：'+esc(c.hint)+'</p>':'')+'</div><div class="guide">タップで答え・左右スワイプで問題を送れるにゃ〜♪</div>';
   const worked=c.worked?.length?'<section class="worked"><h2>途中計算を縦に見よう</h2>'+c.worked.map(w=>'<div class="work"><h3>'+esc(w.title)+'</h3>'+(w.note?'<p>'+esc(w.note)+'</p>':'')+(w.mathHtml?'<div class="formula">'+w.mathHtml+'</div>':'')+'</div>').join('')+'</section>':'';
   const steps=c.steps?.length?'<section class="block"><h2>一行ずつ確認しよう</h2><ol class="steps">'+c.steps.map((s,i)=>'<li>'+(c.stepMathHtml?.[i]?'<div class="formula">'+c.stepMathHtml[i]+'</div>':esc(s))+'</li>').join('')+'</ol></section>':'';
   const answer=c.answerMathHtml?'<div class="formula">'+c.answerMathHtml+'</div>':'<strong>'+esc(c.answer)+'</strong>';
@@ -169,8 +171,10 @@ function cardHtml(c){
 function emptyHtml(remain){if(state.mode==="remaining"&&remain===0)return '<div class="empty"><h2>ぜんぶできたにゃ！</h2><p>すごいにゃ〜♪ 日をあけて、もう一周するともっと安心。</p><button id="resetScope">もう一周するにゃ</button></div>';return '<div class="empty"><h2>この条件の問題はないにゃ</h2><p>「まだ」か「ぜんぶ」に切り替えてみてにゃ。</p></div>'}
 function move(n){const d=deck();if(!d.length)return;state.index=(state.index+n+d.length)%d.length;state.flipped=false;render()}
 function bind(){
-  document.querySelectorAll('[data-subject]').forEach(x=>x.onclick=()=>{tapBurst(x,[META[x.dataset.subject].icon,'✨'],5);playTone();state.subject=x.dataset.subject;state.unit="すべて";state.mode="remaining";state.order=[];reset();setTimeout(render,100)});
-  document.querySelectorAll('[data-unit]').forEach(x=>x.onclick=()=>{tapBurst(x,['🐾','✨'],4);state.unit=x.dataset.unit;state.order=[];reset();setTimeout(render,80)});
+  const chipRow=document.querySelector('.chips');
+  if(chipRow){chipRow.scrollLeft=chipScroll;chipRow.addEventListener('scroll',()=>{chipScroll=chipRow.scrollLeft},{passive:true})}
+  document.querySelectorAll('[data-subject]').forEach(x=>x.onclick=()=>{tapBurst(x,[META[x.dataset.subject].icon,'✨'],5);playTone();state.subject=x.dataset.subject;state.unit="すべて";state.mode="remaining";state.order=[];chipScroll=0;reset();setTimeout(render,100)});
+  document.querySelectorAll('[data-unit]').forEach(x=>x.onclick=()=>{chipScroll=x.parentElement?.scrollLeft??chipScroll;tapBurst(x,['🐾','✨'],4);state.unit=x.dataset.unit;state.order=[];reset();setTimeout(render,80)});
   document.querySelectorAll('[data-mode]').forEach(x=>x.onclick=()=>{tapBurst(x,['✨'],3);state.mode=x.dataset.mode;reset();setTimeout(render,70)});
   const sh=document.querySelector('#shuffle');
   if(sh)sh.onclick=()=>{tapBurst(sh,['🎲','✨','🐾'],9);floatPoints(sh,'まぜまぜ〜♪');playTone('shuffle');showNotice('順番をシャッフルしたにゃ〜♪');state.order=shuffled(deck().map(c=>c.id));reset();setTimeout(render,180)};
