@@ -86,7 +86,8 @@ body{background-image:radial-gradient(circle at 8% 8%,rgba(255,182,193,.16),tran
 .card .front{animation:card-pop-in .4s cubic-bezier(.25,.8,.25,1.25) both}
 .card:before{height:8px;background:linear-gradient(90deg,var(--light-brown),var(--soft-orange),var(--gold),var(--soft-orange))}
 .card:hover{box-shadow:0 15px 34px rgba(139,69,19,.27)}
-.card.is-back{animation:card-flip-in .35s ease both,card-soft-glow 4.2s ease-in-out 1s infinite}
+.card.is-back{animation:card-soft-glow 4.2s ease-in-out 1s infinite}
+.card.is-back>.head,.card.is-back>.back{animation:card-back-content-in .3s ease both}
 .badge{background:#ffe4cc;color:var(--light-brown);border:1px solid #ffd1ad}
 .unit{color:var(--light-brown)}
 .hint{background:#fff3df;color:#9a5f2f;border:2px dashed #f4c899}
@@ -159,6 +160,7 @@ body{background-image:radial-gradient(circle at 8% 8%,rgba(255,182,193,.16),tran
 @keyframes track-shine{from{transform:translateX(-130%)}to{transform:translateX(160%)}}
 @keyframes card-pop-in{from{opacity:0;transform:translateY(16px) scale(.965)}to{opacity:1;transform:none}}
 @keyframes card-flip-in{0%{opacity:.45;transform:rotateY(22deg) scale(.97)}100%{opacity:1;transform:none}}
+@keyframes card-back-content-in{from{opacity:.45;transform:translateY(7px)}to{opacity:1;transform:none}}
 @keyframes card-soft-glow{0%,100%{box-shadow:0 11px 28px var(--neko-shadow)}50%{box-shadow:0 14px 34px rgba(210,105,30,.26)}}
 @keyframes done-button-breathe{0%,100%{filter:brightness(1)}50%{filter:brightness(1.08);box-shadow:0 7px 17px rgba(210,105,30,.28)}}
 @keyframes done-celebrate{0%{transform:scale(1)}35%{transform:scale(1.16) rotate(2deg)}65%{transform:scale(.96) rotate(-1deg)}100%{transform:scale(1)}}
@@ -166,6 +168,11 @@ body{background-image:radial-gradient(circle at 8% 8%,rgba(255,182,193,.16),tran
 @keyframes float-points{0%{opacity:1;transform:translate(-50%,0) scale(1)}100%{opacity:0;transform:translate(-50%,-65px) scale(1.25)}}
 @keyframes cute-particle-burst{0%{opacity:1;transform:translate(-50%,-50%) scale(0) rotate(0)}25%{opacity:1;transform:translate(calc(-50% + var(--dx)*.35),calc(-50% + var(--dy)*.35)) scale(1.2) rotate(120deg)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.55) rotate(360deg)}}
 @media(max-width:520px){.brand{padding:0}.brand h1{font-size:clamp(23px,7vw,28px);margin:3px 0 8px}.brand-meta{gap:6px;margin-bottom:11px}.school-version{min-height:38px;padding:4px 12px;font-size:10px!important}.neko-kicker{font-size:10px!important}.brand-cat{font-size:17px}.header-tools{gap:6px}.count{min-height:38px;font-size:11px;padding:6px 10px}.sound{width:38px;height:38px;font-size:16px}.neko-stats{margin-bottom:8px;padding:6px 10px}.stat-bubble{font-size:11px;padding:3px 5px}.subjects button{font-size:12px;padding:8px 4px}.subject-icon{display:block;margin:0 0 2px}.card{border-radius:19px}.actions{bottom:calc(20px + env(safe-area-inset-bottom,0px));padding:7px}.actions button{font-size:11px}.shuffle{font-size:11px;padding-left:10px;padding-right:10px}}
+/* 裏面の横はみ出し防止：gridの最小幅を0にし、横に長い数式だけを個別スクロールにする */
+.back{width:100%;min-width:0;overflow-x:hidden;overflow-y:auto;touch-action:pan-y}
+.back>*{min-width:0;max-width:100%}
+.back .formula{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden}
+.english-back,.math-back{grid-template-columns:minmax(0,1fr)}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style></head><body><main id="app" class="app math"></main>
 <script>
