@@ -422,7 +422,9 @@ function cardHtml(c){
   return '<div id="card" class="card'+(state.flipped?' is-back':'')+'" tabindex="0">'+(state.flipped?back:front)+'</div><div class="actions"><button id="prev" aria-label="前の問題">←</button><button id="again" class="again">↺ もう一度にゃ</button><button id="done" class="done">✓ できたにゃ！</button><button id="next" aria-label="次の問題">→</button></div>';
 }
 function emptyHtml(remain){if(state.mode==="remaining"&&remain===0)return '<div class="empty"><h2>ぜんぶできたにゃ！</h2><p>すごいにゃ〜♪ 日をあけて、もう一周するともっと安心。</p><button id="resetScope">もう一周するにゃ</button></div>';return '<div class="empty"><h2>この条件の問題はないにゃ</h2><p>「まだ」か「ぜんぶ」に切り替えてみてにゃ。</p></div>'}
-function move(n){const d=deck();if(!d.length)return;state.index=(state.index+n+d.length)%d.length;state.flipped=false;render()}
+/* 表・裏の状態はカード送りとは別に保持する。
+   裏面で送ったときは、次のカードも解答・解説面のまま表示する。 */
+function move(n){const d=deck();if(!d.length)return;state.index=(state.index+n+d.length)%d.length;render()}
 function bind(){
   const chipRow=document.querySelector('.chips');
   if(chipRow){chipRow.scrollLeft=chipScroll;chipRow.addEventListener('scroll',()=>{chipScroll=chipRow.scrollLeft},{passive:true})}
@@ -444,11 +446,11 @@ function bind(){
     if(first){mastered.add(card.id);setStreak(neko.streak+1)}
     save();tapBurst(btn,['✨','🌟','😸','💛'],neko.streak>=5?14:10);floatPoints(btn,first?'+10 できたにゃ！':'できたにゃ！');playTone('done');
     showNotice(neko.streak>=5?'🔥 '+neko.streak+'回つづいているにゃ！':'えらいにゃ！ その調子〜♪');
-    state.flipped=false;if(state.mode!=="remaining")state.index++;setTimeout(render,420);
+    if(state.mode!=="remaining")state.index++;setTimeout(render,420);
   });
   document.querySelector('#again')?.addEventListener('click',e=>{
     const card=deck()[state.index];if(!card)return;
-    const cur=state.order.length?state.order:deck().map(x=>x.id);setStreak(0);mastered.delete(card.id);save();state.order=[...cur.filter(id=>id!==card.id),card.id];state.flipped=false;
+    const cur=state.order.length?state.order:deck().map(x=>x.id);setStreak(0);mastered.delete(card.id);save();state.order=[...cur.filter(id=>id!==card.id),card.id];
     tapBurst(e.currentTarget,['🐾','🧡'],6);floatPoints(e.currentTarget,'あとでもう一度にゃ');playTone();showNotice('だいじょうぶ。後ろでもう一度出すにゃ');setTimeout(render,300);
   });
   document.querySelector('#resetScope')?.addEventListener('click',e=>{tapBurst(e.currentTarget,['🌟','🐾','✨'],12);const ids=new Set(base().map(c=>c.id));mastered=new Set([...mastered].filter(id=>!ids.has(id)));save();setStreak(0);state.mode="remaining";state.order=[];reset();showNotice('もう一周、いってみるにゃ〜♪');setTimeout(render,260)});
