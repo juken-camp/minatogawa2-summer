@@ -176,6 +176,8 @@ body{background-image:radial-gradient(circle at 8% 8%,rgba(255,182,193,.16),tran
 .back .formula{width:100%;max-width:100%;min-width:0;overflow-x:auto;overflow-y:hidden}
 .english-back,.math-back{grid-template-columns:minmax(0,1fr)}
 button{touch-action:manipulation}
+/* 表・裏ともカード上面のカラーラインを同じ太さで固定する */
+.card:before{height:8px;min-height:8px;flex:0 0 8px}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
 </style></head><body><main id="app" class="app math"></main>
 <script>
